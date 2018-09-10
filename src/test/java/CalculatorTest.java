@@ -24,9 +24,9 @@ class CalculatorTest {
 	
 	@Test
 	public void addTwoNegative() {
-		Calculator calc2 = new Calculator();
+		Calculator calc = new Calculator();
 
-		double result = calc2.add(-45.0, -78.9);
-		assertEquals("2 negatives result is incorrect.",result, -123.9);
+		double result = calc.add(-45.0, -78.9);
+		assertEquals(result, -123.9);
 	}
 }
