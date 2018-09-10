@@ -27,6 +27,6 @@ class CalculatorTest {
 		Calculator calc2 = new Calculator();
 
 		double result = calc2.add(-45.0, -78.9);
-		assertEquals(result, -123.9,"2 negatives result is incorrect.");
+		assertEquals("2 negatives result is incorrect.",result, -123.9);
 	}
 }
