@@ -11,7 +11,7 @@ class CalculatorTest {
 		int b = 4;
 		double result = calc.add(a, b);
 
-		assertEquals(result, 7);
+		assertEquals(result, 7, "4 + 3 should be 7");
 	}
 
 	@Test
@@ -19,7 +19,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 
 		double result = calc.add(64.5, 84.7);
-		assertEquals(result, 149.2);
+		assertEquals(result, 149.2, "64.5 + 84.7 should be 149.2");
 	}
 
 	@Test
@@ -27,7 +27,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 
 		double result = calc.add(-45.0, -78.9);
-		assertEquals(result, -123.9);
+		assertEquals(result, -123.9, "-45.0 + (-78.9) should be -123.9");
 	}
 
 	@Test
@@ -35,7 +35,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 
 		double result = calc.add(420, -1234);
-		assertEquals(result, -814);
+		assertEquals(result, -814, "420 plus (-1234) should be -814");
 	}
 
 	@Test
@@ -43,6 +43,6 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 
 		double result = calc.add(150.52, 150.21);
-		assertEquals(result, 300.73);
+		assertEquals(result, 300.73, "150.52 + 150.21 should be 300.73");
 	}
 }
