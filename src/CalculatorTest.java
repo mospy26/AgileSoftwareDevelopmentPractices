@@ -13,4 +13,12 @@ class CalculatorTest {
 
 		assertEquals(result, 7);
 	}
+
+	@Test
+	public void addTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double result = calc.add(64.5, 84.7);
+		assertEquals(result, 149.2);
+	}
 }
