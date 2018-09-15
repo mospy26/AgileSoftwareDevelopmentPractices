@@ -45,4 +45,13 @@ class CalculatorTest {
 		double result = calc.add(150.52, 150.21);
 		assertEquals(result, 300.73, "150.52 + 150.21 should be 300.73");
 	}
+
+	@Test
+	public void multiplyTwoNumbers() {
+		Calculator calc = new Calculator();
+
+		double result = calc.multiply(2.0, 3.0);
+		assertEquals(result, 6.0, "2.0 * 3.0 should be 6.0");
+	}
+
 }
