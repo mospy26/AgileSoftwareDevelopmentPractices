@@ -55,4 +55,12 @@ class CalculatorTest {
 		assertEquals(result, 30.0," 50.0 - 20.0 should be 30.0");
 
 	}
+
+	@Test
+	public void subtractionTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(100.8, 58.3);
+		assertEquals(result, 42.5, "100.8 - 58.3 should be 42.5");
+	}
 }
