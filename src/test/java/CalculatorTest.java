@@ -54,4 +54,11 @@ class CalculatorTest {
 		assertEquals(result, 6.0, "2.0 * 3.0 should be 6.0");
 	}
 
+	@Test
+	public void multiplyTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double result = calc.multiply(12.4, 19.8);
+		assertEquals(result, 245.52, "12.4 * 19.8 should be 245.52");
+	}	
 }
