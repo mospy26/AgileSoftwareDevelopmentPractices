@@ -47,13 +47,11 @@ class CalculatorTest {
 	}
 
 	@Test
-	public void subtractionTwoIntegers(){
-
+	public void subtractionTwoIntegers() {
 		Calculator calc = new Calculator();
 
-		double result = calc.subtraction(50.0,20.0);
-		assertEquals(result, 30.0," 50.0 - 20.0 should be 30.0");
-
+		double result = calc.subtraction(50, 20);
+		assertEquals(result, 30," 50 - 20 should be 30");
 	}
 
 	@Test
@@ -70,5 +68,13 @@ class CalculatorTest {
 
 		double result = calc.subtraction(50.0, -50.0);
 		assertEquals(result, 100.0, "50.0 - -50.0 should be 100.0");
+	}
+
+	@Test
+	public void subtractionZeroNegativeIsPositive() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(0, -4);
+		assertEquals(result, 4, "0-(-4) should be 4");
 	}
 }
