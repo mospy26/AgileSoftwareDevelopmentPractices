@@ -60,5 +60,13 @@ class CalculatorTest {
 
 		double result = calc.multiply(12.4, 19.8);
 		assertEquals(result, 245.52, "12.4 * 19.8 should be 245.52");
-	}	
+	}
+
+	@Test
+	public void multiplyWithZero() {
+		Calculator calc = new Calculator();
+
+		double result = calc.multiply(912.41, 0);
+		assertEquals(result, 0, "Anything multiplied by 0 should be 0");
+	}
 }
