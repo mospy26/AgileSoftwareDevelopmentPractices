@@ -71,13 +71,14 @@ class CalculatorTest {
 	}
 
 	@Test
-	public void multiplyTwoNegatives(){
+	public void multiplyTwoNegatives() {
 		Calculator calc = new Calculator();
 
-		double result = calc.multiply(-35.5, -46.7);
-		assertEquals(result, 1657.85, "-35.5 * -46.7 should be 1657.85");
+		double result = calc.multiply(-4.5, -9.2);
+		assertEquals(result, 41.4, "-4.5 * -9.2 should be 41.4");
 	}
 
+	@Test
 	public void subtractionTwoIntegers() {
 		Calculator calc = new Calculator();
 
