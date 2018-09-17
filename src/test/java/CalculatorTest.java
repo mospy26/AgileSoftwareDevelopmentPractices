@@ -70,12 +70,13 @@ class CalculatorTest {
 		assertEquals(result, 0, "Anything multiplied by 0 should be 0");
 	}
 
-	@Test 
+	@Test
 	public void multiplyTwoNegatives(){
 		Calculator calc = new Calculator();
 
 		double result = calc.multiply(-35.5, -46.7);
 		assertEquals(result, 1657.85, "-35.5 * -46.7 should be 1657.85");
+	}
 
 	public void subtractionTwoIntegers() {
 		Calculator calc = new Calculator();
