@@ -45,4 +45,36 @@ class CalculatorTest {
 		double result = calc.add(150.52, 150.21);
 		assertEquals(result, 300.73, "150.52 + 150.21 should be 300.73");
 	}
+
+	@Test
+	public void subtractionTwoIntegers() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(50, 20);
+		assertEquals(result, 30," 50 - 20 should be 30");
+	}
+
+	@Test
+	public void subtractionTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(100.8, 58.3);
+		assertEquals(result, 42.5, "100.8 - 58.3 should be 42.5");
+	}
+
+	@Test
+	public void subtractionNegativePositive() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(50.0, -50.0);
+		assertEquals(result, 100.0, "50.0 - -50.0 should be 100.0");
+	}
+
+	@Test
+	public void subtractionZeroNegativeIsPositive() {
+		Calculator calc = new Calculator();
+
+		double result = calc.subtraction(0, -4);
+		assertEquals(result, 4, "0-(-4) should be 4");
+	}
 }
