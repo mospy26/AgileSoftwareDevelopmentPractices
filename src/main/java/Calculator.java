@@ -5,7 +5,7 @@ class Calculator {
 		return a + b;
 	}
 
-  //Multiply method : Multiply a by b
+  	//Multiply method : Multiply a by b
 	public double multiply(double a, double b) {
 		return a * b;
 	}
