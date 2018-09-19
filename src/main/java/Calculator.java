@@ -4,7 +4,7 @@ import javafx.util.Pair;
 class Calculator {
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
-		System.out.println("Calculator usage: a OPERATOR b (e.g. 5 + 2)");
+		System.out.println("Calculator usage: a OPERATOR b (e.g. 5 + 2). Available operators: + - * ^");
 
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
@@ -30,6 +30,10 @@ class Calculator {
 
 	public double subtraction(double a , double b){
 		return a - b;
+	}
+
+	public double power(double a, double b) {
+		return Math.pow(a, b);
 	}
 
 	// Returns pair of status code (0 if success) and result (if applicable)
@@ -58,6 +62,9 @@ class Calculator {
 				break;
 			case "*":
 				result = multiply(a, b);
+				break;
+			case "^":
+				result = power(a, b);
 				break;
 			default:
 				return new Pair<Integer, Double>(1, result);
