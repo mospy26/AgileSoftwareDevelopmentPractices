@@ -30,6 +30,11 @@ class Calculator {
 		return a - b;
 	}
 
+	public double divide(double a, double b) throws ArithmeticException {
+		if(b == 0) throw new ArithmeticException("Denominator cannot be zero!");
+		return a / b;
+	}
+
 	// Returns pair of status code (0 if success) and result (if applicable)
 	public Pair<Integer, Double> parseInput(String s) {
 		double result = 0;
@@ -56,6 +61,9 @@ class Calculator {
 				break;
 			case "*":
 				result = multiply(a, b);
+				break;
+			case "/":
+				result = divide(a, b);
 				break;
 			default:
 				return new Pair<Integer, Double>(1, result);
