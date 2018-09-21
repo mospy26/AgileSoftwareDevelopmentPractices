@@ -30,7 +30,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 		Pair<Integer, Double> result = calc.parseInput("1 + 2");
 		assertEquals((int)result.getKey(), 0, "Method should have returned success status code");
-	}	
+	}
 
 	@Test
 	public void checkValidInput() {
@@ -161,5 +161,13 @@ class CalculatorTest {
 
 		double result = calc.divide(10, 2);
 		assertEquals(result, 5, "10/2 should be 5");
+	}
+
+	@Test
+	public void divideTwoNegatives() {
+		Calculator calc = new Calculator();
+	
+		double result = calc.divide(-2, -2);
+		assertEquals(result, 1, "Dividing two negatives should result in a positive");
 	}
 }
