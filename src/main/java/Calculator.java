@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import javafx.util.Pair;
 
 class Calculator {
 	public static void main(String[] args) {
@@ -10,10 +9,10 @@ class Calculator {
 		System.out.println("Input: ");
 		String s = scanner.nextLine();
 		
-		Pair<Integer, Double> result = calc.parseInput(s);
-		if (result.getKey() == 0) {
-			System.out.println(s + " = " + result.getValue());
-		} else {
+		try {
+			double result = calc.parseInput(s);
+			System.out.println(s + " = " + result);
+		} catch (Exception e) {
 			System.out.println("Invalid input!");
 		}
 	}
@@ -31,37 +30,27 @@ class Calculator {
 	}
 
 	// Returns pair of status code (0 if success) and result (if applicable)
-	public Pair<Integer, Double> parseInput(String s) {
+	public double parseInput(String s) {
 		double result = 0;
 
 		String[] parms = s.split(" ");
 		if (parms.length != 3) {
-			return new Pair<Integer, Double>(1, result);
+			throw new IllegalArgumentException("Invalid number of parameters");
 		}
 
-		double a, b;
-		try {
-			a = Double.parseDouble(parms[0]);
-			b = Double.parseDouble(parms[2]);
-		} catch (NumberFormatException e) {
-			return new Pair<Integer, Double>(1, result);
-		}
+		double a = Double.parseDouble(parms[0]);
+		double b = Double.parseDouble(parms[2]);
 
 		switch (parms[1]) {
 			case "+":
-				result = add(a, b);
-				break;
+				return add(a, b);
 			case "-":
-				result = subtraction(a, b);
-				break;
+				return subtraction(a, b);
 			case "*":
-				result = multiply(a, b);
-				break;
+				return multiply(a, b);
 			default:
-				return new Pair<Integer, Double>(1, result);
+				throw new UnsupportedOperationException("Invalid operation");
 		}
-
-		return new Pair<Integer, Double>(0, result);
 	}
 
 }

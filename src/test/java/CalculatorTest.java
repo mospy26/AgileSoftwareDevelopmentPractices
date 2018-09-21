@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-import javafx.util.Pair;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,36 +6,32 @@ class CalculatorTest {
 	@Test
 	public void useInvalidNumbers() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("a + b");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(NumberFormatException.class, () -> {
+			calc.parseInput("a + b");
+		});
 	}
 
 	@Test
 	public void useInvalidOperator() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("1 a 2");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(UnsupportedOperationException.class, () -> {
+			calc.parseInput("1 a 2");
+		});
 	}
 
 	@Test
 	public void useEmptyString() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(IllegalArgumentException.class, () -> {
+			calc.parseInput("");
+		});
 	}
 
 	@Test
 	public void useValidInput() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("1 + 2");
-		assertEquals((int)result.getKey(), 0, "Method should have returned success status code");
-	}	
-
-	@Test
-	public void checkValidInput() {
-		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("5 * 8");
-		assertEquals((double)result.getValue(), 40, "Method should have returned value 40");
+		double result = calc.parseInput("5 * 8");
+		assertEquals(result, 40, "Method should have returned value 40");
 	}
 
 	@Test
