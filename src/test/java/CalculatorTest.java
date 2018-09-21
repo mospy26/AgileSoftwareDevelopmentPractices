@@ -151,6 +151,6 @@ class CalculatorTest {
 		Calculator calc = new Calcultor();
 
 		double result = calc.power(2, -1);
-		assertEquals(result, 0.5, "2 to the power of -1 should be 0.5")
+		assertEquals(result, 0.5, "2 to the power of -1 should be 0.5");
 	}
 }
