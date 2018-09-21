@@ -30,7 +30,7 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 		Pair<Integer, Double> result = calc.parseInput("1 + 2");
 		assertEquals((int)result.getKey(), 0, "Method should have returned success status code");
-	}	
+	}
 
 	@Test
 	public void checkValidInput() {
@@ -144,5 +144,13 @@ class CalculatorTest {
 
 		double result = calc.subtraction(0, -4);
 		assertEquals(result, 4, "0-(-4) should be 4");
+	}
+
+	@Test
+	public void powerPositiveToNegative() {
+		Calculator calc = new Calcultor();
+
+		double result = calc.power(2, -1);
+		assertEquals(result, 0.5, "2 to the power of -1 should be 0.5")
 	}
 }
