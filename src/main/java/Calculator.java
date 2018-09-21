@@ -7,16 +7,14 @@ class Calculator {
 		System.out.println("Calculator usage: a OPERATOR b (e.g. 5 + 2)");
 
 		Scanner scanner = new Scanner(System.in);
-		while (true) {
-			System.out.println("Input: ");
-			String s = scanner.nextLine();
-			
-			Pair<Integer, Double> result = calc.parseInput(s);
-			if (result.getKey() == 0) {
-				System.out.println(s + " = " + result.getValue());
-			} else {
-				System.out.println("Invalid input. Try again.");
-			}
+		System.out.println("Input: ");
+		String s = scanner.nextLine();
+		
+		Pair<Integer, Double> result = calc.parseInput(s);
+		if (result.getKey() == 0) {
+			System.out.println(s + " = " + result.getValue());
+		} else {
+			System.out.println("Invalid input!");
 		}
 	}
 
