@@ -145,4 +145,21 @@ class CalculatorTest {
 		double result = calc.subtraction(0, -4);
 		assertEquals(result, 4, "0-(-4) should be 4");
 	}
+
+	@Test
+	public void divideByZero() {
+		Calculator calc = new Calculator();
+
+		assertThrows(ArithmeticException.class, () -> {
+			calc.divide(7, 0);
+		});
+	}
+
+	@Test
+	public void divideTwoIntegers() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(10, 2);
+		assertEquals(result, 5, "10/2 should be 5");
+	}
 }
