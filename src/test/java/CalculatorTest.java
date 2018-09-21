@@ -170,4 +170,20 @@ class CalculatorTest {
 		double result = calc.divide(-2, -2);
 		assertEquals(result, 1, "Dividing two negatives should result in a positive");
 	}
+
+	@Test
+	public void divideNegativePositive() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(-27.95, 6.5);
+		assertEquals(result, -4.3, "Dividing a negative i.e. -27.95 by a positive i.e. 6.5 must give a negative i.e. -4.3");
+	}
+
+	@Test
+	public void divideZeroByNumber() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(0, 8);
+		assertEquals(result, 0, "Zero divided by any number except zero must be a zero");
+	}
 }
