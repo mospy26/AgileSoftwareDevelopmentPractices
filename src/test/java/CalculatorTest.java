@@ -177,4 +177,11 @@ class CalculatorTest {
 		double res = calc.power(12.5, 1);
 		assertEquals(res, 12.5, "12.5^1 should be 12.5");
 	}
+	@Test
+	public void powerTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(0.76, 4.5);
+		assertEquals(res,0.29084470744123603 , "0.76^4.5 should be 0.29084470744123603");
+	}
 }
