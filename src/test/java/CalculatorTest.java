@@ -186,4 +186,11 @@ class CalculatorTest {
 		double result = calc.divide(0, 8);
 		assertEquals(result, 0, "Zero divided by any number except zero must be a zero");
 	}
+	@Test
+	public void divideDecimals() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(46.89638, 3.252);
+		assertEquals(result, 14.42078105781058, "46.89638 divided by 3.252 is 14.421 rounded to 3 decimal places");
+	}
 }
