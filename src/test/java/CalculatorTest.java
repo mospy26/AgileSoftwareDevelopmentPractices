@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test;
-import javafx.util.Pair;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,36 +6,33 @@ class CalculatorTest {
 	@Test
 	public void useInvalidNumbers() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("a + b");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(NumberFormatException.class, () -> {
+			calc.parseInput("a + b");
+		});
 	}
 
 	@Test
 	public void useInvalidOperator() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("1 a 2");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(UnsupportedOperationException.class, () -> {
+			calc.parseInput("1 a 2");
+		});
 	}
 
 	@Test
 	public void useEmptyString() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("");
-		assertEquals((int)result.getKey(), 1, "Method should have returned error status code");
+		assertThrows(IllegalArgumentException.class, () -> {
+			calc.parseInput("");
+		});
 	}
 
 	@Test
 	public void useValidInput() {
 		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("1 + 2");
-		assertEquals((int)result.getKey(), 0, "Method should have returned success status code");
-	}
 
-	@Test
-	public void checkValidInput() {
-		Calculator calc = new Calculator();
-		Pair<Integer, Double> result = calc.parseInput("5 * 8");
-		assertEquals((double)result.getValue(), 40, "Method should have returned value 40");
+		double result = calc.parseInput("5 * 8");
+		assertEquals(result, 40, "Method should have returned value 40");
 	}
 
 	@Test
@@ -186,11 +182,52 @@ class CalculatorTest {
 		double result = calc.divide(0, 8);
 		assertEquals(result, 0, "Zero divided by any number except zero must be a zero");
 	}
+  
 	@Test
 	public void divideDecimals() {
 		Calculator calc = new Calculator();
 
 		double result = calc.divide(46.89638, 3.252);
 		assertEquals(result, 14.42078105781058, "46.89638 divided by 3.252 is 14.42078105781058");
+  }
+
+  @Test
+	public void powerPositiveToNegative() {
+		Calculator calc = new Calculator();
+
+		double result = calc.power(2, -1);
+		assertEquals(result, 0.5, "2 to the power of -1 should be 0.5");
+	}
+
+	@Test
+	public void powerDoubleAndInt() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(2.5, 3);
+		assertEquals(res, 15.625, "2.5^3 should be 15.625");
+	}
+
+	@Test
+	public void powerNtoZeroIsOne() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(6, 0);
+		assertEquals(res, 1, "6^0 should be 1");
+	}
+
+	@Test
+	public void powerNtoOneIsN() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(12.5, 1);
+		assertEquals(res, 12.5, "12.5^1 should be 12.5");
+	}
+  
+	@Test
+	public void powerTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(0.76, 4.5);
+		assertEquals(res,0.29084470744123603 , "0.76^4.5 should be 0.29084470744123603");
 	}
 }
