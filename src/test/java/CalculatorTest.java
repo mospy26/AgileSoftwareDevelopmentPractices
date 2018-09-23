@@ -191,6 +191,6 @@ class CalculatorTest {
 		Calculator calc = new Calculator();
 
 		double result = calc.divide(46.89638, 3.252);
-		assertEquals(result, 14.42078105781058, "46.89638 divided by 3.252 is 14.421 rounded to 3 decimal places");
+		assertEquals(result, 14.42078105781058, "46.89638 divided by 3.252 is 14.42078105781058");
 	}
 }
