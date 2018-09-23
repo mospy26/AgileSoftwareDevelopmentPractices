@@ -29,6 +29,11 @@ class Calculator {
 		return a - b;
 	}
 
+	public double divide(double a, double b) throws ArithmeticException {
+		if(b == 0) throw new ArithmeticException("Denominator cannot be zero!");
+		return a / b;
+  }
+
 	public double power(double a, double b) {
 		return Math.pow(a, b);
 	}
@@ -52,6 +57,8 @@ class Calculator {
 				return subtraction(a, b);
 			case "*":
 				return multiply(a, b);
+			case "/":
+				return divide(a, b);
 			case "^":
 				return power(a, b);
 			default:

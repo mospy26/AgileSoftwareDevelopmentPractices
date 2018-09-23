@@ -30,6 +30,7 @@ class CalculatorTest {
 	@Test
 	public void useValidInput() {
 		Calculator calc = new Calculator();
+
 		double result = calc.parseInput("5 * 8");
 		assertEquals(result, 40, "Method should have returned value 40");
 	}
@@ -142,6 +143,55 @@ class CalculatorTest {
 	}
 
 	@Test
+	public void divideByZero() {
+		Calculator calc = new Calculator();
+
+		assertThrows(ArithmeticException.class, () -> {
+			calc.divide(7, 0);
+		});
+	}
+
+	@Test
+	public void divideTwoIntegers() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(10, 2);
+		assertEquals(result, 5, "10/2 should be 5");
+	}
+
+	@Test
+	public void divideTwoNegatives() {
+		Calculator calc = new Calculator();
+	
+		double result = calc.divide(-2, -2);
+		assertEquals(result, 1, "Dividing two negatives should result in a positive");
+	}
+
+	@Test
+	public void divideNegativePositive() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(-27.95, 6.5);
+		assertEquals(result, -4.3, "Dividing a negative i.e. -27.95 by a positive i.e. 6.5 must give a negative i.e. -4.3");
+	}
+
+	@Test
+	public void divideZeroByNumber() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(0, 8);
+		assertEquals(result, 0, "Zero divided by any number except zero must be a zero");
+	}
+  
+	@Test
+	public void divideDecimals() {
+		Calculator calc = new Calculator();
+
+		double result = calc.divide(46.89638, 3.252);
+		assertEquals(result, 14.42078105781058, "46.89638 divided by 3.252 is 14.42078105781058");
+ 	}
+
+  	@Test
 	public void powerPositiveToNegative() {
 		Calculator calc = new Calculator();
 
@@ -172,6 +222,7 @@ class CalculatorTest {
 		double res = calc.power(12.5, 1);
 		assertEquals(res, 12.5, "12.5^1 should be 12.5");
 	}
+  
 	@Test
 	public void powerTwoDoubles() {
 		Calculator calc = new Calculator();
