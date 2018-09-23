@@ -3,7 +3,7 @@ import java.util.Scanner;
 class Calculator {
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
-		System.out.println("Calculator usage: a OPERATOR b (e.g. 5 + 2)");
+		System.out.println("Calculator usage: a OPERATOR b (e.g. 5 + 2). Available operators: + - * ^");
 
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Input: ");
@@ -29,6 +29,10 @@ class Calculator {
 		return a - b;
 	}
 
+	public double power(double a, double b) {
+		return Math.pow(a, b);
+	}
+
 	// Returns pair of status code (0 if success) and result (if applicable)
 	public double parseInput(String s) {
 		double result = 0;
@@ -48,6 +52,8 @@ class Calculator {
 				return subtraction(a, b);
 			case "*":
 				return multiply(a, b);
+			case "^":
+				return power(a, b);
 			default:
 				throw new UnsupportedOperationException("Invalid operation");
 		}

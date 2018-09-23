@@ -140,4 +140,43 @@ class CalculatorTest {
 		double result = calc.subtraction(0, -4);
 		assertEquals(result, 4, "0-(-4) should be 4");
 	}
+
+	@Test
+	public void powerPositiveToNegative() {
+		Calculator calc = new Calculator();
+
+		double result = calc.power(2, -1);
+		assertEquals(result, 0.5, "2 to the power of -1 should be 0.5");
+	}
+
+	@Test
+	public void powerDoubleAndInt() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(2.5, 3);
+		assertEquals(res, 15.625, "2.5^3 should be 15.625");
+	}
+
+	@Test
+	public void powerNtoZeroIsOne() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(6, 0);
+		assertEquals(res, 1, "6^0 should be 1");
+	}
+
+	@Test
+	public void powerNtoOneIsN() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(12.5, 1);
+		assertEquals(res, 12.5, "12.5^1 should be 12.5");
+	}
+	@Test
+	public void powerTwoDoubles() {
+		Calculator calc = new Calculator();
+
+		double res = calc.power(0.76, 4.5);
+		assertEquals(res,0.29084470744123603 , "0.76^4.5 should be 0.29084470744123603");
+	}
 }
